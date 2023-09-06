@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [message, setMessage] = useState('');
+
+  const handleButtonClick = () => {
+    setMessage('I love you! I am Sorry!');
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={{ color: "white", fontSize: "2rem"}}> Click My Heart
+      
+      <div className="heart-button-container">
+        <button className="heart-button" onClick={handleButtonClick}>
+          <span className="heart">&#10084;</span>
+        </button>
+      </div>
+      {message && <div className="message">{message}</div>}
     </div>
   );
 }
